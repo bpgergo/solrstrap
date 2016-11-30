@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NOL Search</title>
+    <title>exszabi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link href="css/solrstrap.css" rel="stylesheet" media="screen">
   </head>
   <body screen_capture_injected="true">
-
-    <!--actual visible HTML-->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          
-          <!-- a class="brand" href="#"> NOL </a -->
-          
+    <nav>
+      <h1 class="title">
+        EXSZABI
+      </h1>
+    </nav>
+    <article class="container-fluid">
+      <!--actual visible HTML-->
+      <div class="container jumbotron">
+        <h3>Az alternatív Népszabadság archívum</h3>
+        <p>Ezt az oldalt önkéntes programozók segítségével hoztuk létre, hogy ismét elérhetővé váljon a nol.hu archívuma. Az oldal a https://archive.org/web/ oldalon lementett több, mint százezer cikkben teszi lehetővé a keresést. Célunk mindössze annyi, hogy a nyilvánosság számára írt cikkek továbbra is nyilvánosak legyenek. Az oldal a szerzők jogait tiszteletben tartja, és addig kíván üzemelni, amíg a Népszabadság archívuma nem lesz ismét teljes körűen elérhető.</p>
+      </div>
+    </article>
+      <div class="container search">
+        <div class="row">
           <form class="navbar-search" style="float:left">
             <div id="search-div">
-              <input type="text" class="search-query span8" 
-                   placeholder="Search NOL.hu stored on the Internet Archive" 
+              <input type="text" class="search-query span8"
+                   placeholder="Search NOL.hu stored on the Internet Archive"
                    onfocus="this.value = this.value;" id="solrstrap-searchbox" name="q">
             </div>
           </form>
-
         </div>
-
-    <!-- div>
-        <a href='https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser'>Query syntax</a>
-    </div -->
-
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div id="solrstrap-facets" class="span4"></div>
-        <div id="solrstrap-hits" class="span8"></div>
+      <div class="container">
+        <div class="row">
+          <div id="solrstrap-facets" class="span4"></div>
+          <div id="solrstrap-hits" class="span8"></div>
+        </div>
       </div>
-    </div>
+    </article>
 
 
     <!--Handlebars layout templates-->
@@ -74,7 +72,7 @@
     <span class="nav-title">Filters</span><br>
     {{#each this}}
     <a class="close" href="#">&times;</a>
-    <a href='#' class="selectedNav" 
+    <a href='#' class="selectedNav"
        data-filter="{{name}}:{{value}}"
        title="{{facet_displayname name}}:{{value}}">{{facet_displayname name}}:{{value}}</a><br>
     {{/each}}

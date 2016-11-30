@@ -1,0 +1,39 @@
+//out: solrstrap.css
+
+@highlightColor: #4b2b41;
+
+body {
+
+}
+
+nav {
+  top:0;
+  margin:0;
+  padding:0;
+  text-align: center;
+
+  box-shadow: 1px 1px 8px rgba(88, 88, 88, 0.25);
+  .title {
+    display: inline-block;
+    font-weight: bold;
+    background: @highlightColor;
+    color: white;
+    margin: 0 auto 0 auto;
+  }
+}
+
+.jumbotron {
+  margin-top: 50px;
+  h3, p {
+    font-family: Georgia, serif;
+  }
+}
+
+
+#search-form {margin:0px;}
+#result-summary{margin-bottom:20px;}
+// html { overflow-y: scroll; } /*force scrollbar*/
+.facet, .chosen-facet {
+    margin-bottom:20px; overflow: hidden; white-space: nowrap;
+}
+.entry { margin-bottom: 10px; }
