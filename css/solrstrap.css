@@ -1,3 +1,14 @@
+body {
+  font-family: Georgia, serif;
+  background-color: #f8f8f8;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #4b2b41;
+}
 nav {
   top: 0;
   margin: 0;
@@ -7,30 +18,50 @@ nav {
 }
 nav .title {
   display: inline-block;
-  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bolder;
   background: #4b2b41;
   color: white;
   margin: 0 auto 0 auto;
 }
-.jumbotron {
-  margin-top: 50px;
-}
-.jumbotron h3,
 .jumbotron p {
-  font-family: Georgia, serif;
+  font-size: 18px;
 }
-#search-form {
-  margin: 0px;
+.jumbotron:first-of-type {
+  background: transparent;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.search {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.search .form-control,
+.search #search-div {
+  width: 100%;
+}
+.search .form-control {
+  font-size: 30px;
+}
+.logo {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.logo:hover {
+  opacity: 1;
+}
+.facebooklink {
+  text-align: center;
 }
 #result-summary {
-  margin-bottom: 20px;
-}
-.facet,
-.chosen-facet {
-  margin-bottom: 20px;
-  overflow: hidden;
-  white-space: nowrap;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid grey;
+  text-align: center;
 }
 .entry {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+.entry a {
+  font-size: 21px;
 }
