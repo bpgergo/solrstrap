@@ -107,15 +107,10 @@ $(document).ready(function () {
                         var date = result.response.docs[i][DATE];
                         var author = result.response.docs[i][AUTHOR];
 
-                        console.log('-----------------------------');
-                        console.log(link);
                         link = link.replace(FILE_ROOT, ROOT_URL_NOL);
-                        console.log(link);
                         link = link.replace('/index.html', '');
-                        console.log(link);
                         link = link.replace('.html', '');
-                        console.log(link);
-                        //lnik = link.replace(new RegExp('/index\.html$'), '');
+                        //link = link.replace(new RegExp('/index\.html$'), '');
                         if (date) {
                             title = date + ' - ' + title;
                         }
@@ -123,21 +118,24 @@ $(document).ready(function () {
                             title = author + ' | ' + title;
                         }
 
-                        if (!text){
+                        if (!text) {
                             text = link.replace('https://web.archive.org/web/http://', '');
                         }
 
-                        //console.log('replaced:' + link);
+                        console.log('title:' + title);
+                        if (!title || 0 === title.length) {
+                            title = link;
+                        }
 
                         var hit_data = {title: title, text: text};
 
                         if (teaser) {
                             hit_data['teaser'] = teaser;
                         }
+                        
                         if (link) {
                             hit_data['link'] = link;
                         }
-
 
                         rs.append(TEMPLATES.hitTemplate(hit_data));
                     }
