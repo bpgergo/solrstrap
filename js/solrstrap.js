@@ -122,7 +122,7 @@ $(document).ready(function () {
                             text = link.replace('https://web.archive.org/web/http://', '');
                         }
 
-                        console.log('title:' + title);
+                        //console.log('title:' + title);
                         if (!title || 0 === title.length) {
                             title = link;
                         }
