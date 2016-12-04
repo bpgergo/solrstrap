@@ -80,6 +80,7 @@ $(document).ready(function () {
             FACETS_TITLES[facetname] : facetname);
     });
     $.fn.getSolrResults = function (q, fq, offset) {
+        last_query = q;
         var rs = this;
         $(rs).parent().css({opacity: 0.2});
         $.ajax({
@@ -92,7 +93,6 @@ $(document).ready(function () {
                 // console.log(result);
                 //only redraw hits if there are new hits available
                 if (result.response.docs.length > 0) {
-                    last_query = q;
                     if (offset == 0) {
                         rs.empty();
                         //strapline that tells you how many hits you got
@@ -352,10 +352,10 @@ function maybe_autosearch() {
         && last_query != undefined && last_query != q
         //&& q !== getURLParam("q")
         ) {
-        console.log("query changed, q, latest_query, getURLParam[q]--------------------------------");
-        console.log(q);
-        console.log(last_query);
-        console.log(getURLParam("q"));
+        //console.log("query changed, q, latest_query, getURLParam[q]--------------------------------");
+        //console.log(q);
+        //console.log(last_query);
+        //console.log(getURLParam("q"));
         $('#solrstrap-hits div[offset="0"]').loadSolrResults(q, [], 0);
     }
     else {
