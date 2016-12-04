@@ -24,7 +24,7 @@ var HL_SIMPLE_PRE = '<em>';
 var HL_SIMPLE_POST = '</em>';
 var HL_SNIPPETS = 3;
 
-var AUTOSEARCH_DELAY = 0;
+var AUTOSEARCH_DELAY = 150;
 
 //when the page is loaded- do this
 $(document).ready(function () {
@@ -347,6 +347,9 @@ function maybe_autosearch() {
     }
     var q = $.trim($('#solrstrap-searchbox').val());
     if (q.length > 3 && q !== getURLParam("q")) {
+        console.log("WTF, q, getURLParam[q]--------------------------------");
+        console.log(q)
+        console.log(getURLParam("q"));
         $('#solrstrap-hits div[offset="0"]').loadSolrResults(q, [], 0);
     }
     else {
