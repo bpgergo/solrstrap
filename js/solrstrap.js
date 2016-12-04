@@ -25,6 +25,7 @@ var HL_SIMPLE_POST = '</em>';
 var HL_SNIPPETS = 3;
 
 var AUTOSEARCH_DELAY = 150;
+var last_query = undefined;
 
 //when the page is loaded- do this
 $(document).ready(function () {
@@ -91,6 +92,7 @@ $(document).ready(function () {
                 // console.log(result);
                 //only redraw hits if there are new hits available
                 if (result.response.docs.length > 0) {
+                    last_query = q;
                     if (offset == 0) {
                         rs.empty();
                         //strapline that tells you how many hits you got
@@ -346,9 +348,13 @@ function maybe_autosearch() {
         window.clearTimeout(timeoutid);
     }
     var q = $.trim($('#solrstrap-searchbox').val());
-    if (q.length > 3 && q !== getURLParam("q")) {
-        console.log("WTF, q, getURLParam[q]--------------------------------");
-        console.log(q)
+    if (q.length > 3
+        && last_query != undefined && last_query != q
+        //&& q !== getURLParam("q")
+        ) {
+        console.log("query changed, q, latest_query, getURLParam[q]--------------------------------");
+        console.log(q);
+        console.log(last_query);
         console.log(getURLParam("q"));
         $('#solrstrap-hits div[offset="0"]').loadSolrResults(q, [], 0);
     }
